@@ -6,7 +6,9 @@
 
 本模版除了主修毕业论文外，还支持辅修版本和毕业设计版本。详细使用示例可查看 example.tex 文件。
 
-![](https://f5soft.site/zh/labs/2022/0416.assets/template.webp)
+![](https://f5soft.site/zh/labs/2022/0416.assets/cover.webp)
+
+![](https://f5soft.site/zh/labs/2022/0416.assets/collection.webp)
 
 ## Features
 
