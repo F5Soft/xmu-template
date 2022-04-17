@@ -140,7 +140,7 @@
 
 % 中文摘要
 \newenvironment{abstract}{
-    \chapter*{摘\qquad 要}
+    \chapter*{摘\quad\; 要}
     \pagestyle{fancy}
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
@@ -177,7 +177,7 @@
 \renewcommand{\tableofcontents}{
     % 中文目录标题
     \begin{center}
-        \heiti\zihao{-3}目\qquad 录
+        \heiti\zihao{-3}目\quad\; 录
     \end{center}
     \vspace{1em}
     % 中文目录页脚
@@ -315,7 +315,7 @@
 %%%%%%%% 附录 %%%%%%%%
 
 \renewenvironment{appendix}{
-    \chapter*{附\qquad 录}
+    \chapter*{附\quad\; 录}
     \pagestyle{fancy}
     \fancyhf{}
     \fancyhead[OC]{\songti\zihao{-5}附录}
@@ -330,6 +330,7 @@
     \renewcommand{\theequation}{A-\arabic{equation}}
     \renewcommand{\thesection}{A.\arabic{section}}
     \renewcommand{\thesubsection}{A.\arabic{section}.\arabic{subsection}}
+    \addtocounter{chapter}{1}
     \setcounter{figure}{0}
     \setcounter{table}{0}
     \setcounter{equation}{0}
@@ -343,7 +344,7 @@
 %%%%%%%% 致谢 %%%%%%%%
 
 \newenvironment{acknowledgement}{
-    \chapter*{致\qquad 谢}
+    \chapter*{致\quad\; 谢}
     \pagestyle{fancy}
     \fancyhf{}
     \fancyhead[OC]{\songti\zihao{-5}致谢}
