@@ -24,6 +24,7 @@
 % 数学公式
 \RequirePackage{array}
 \RequirePackage{amsmath}
+\RequirePackage{amssymb}
 \RequirePackage{mathptmx}
 \RequirePackage{bm}
 % 算法
@@ -65,6 +66,9 @@
 \setmainfont{Times New Roman}
 % 中文默认字体
 \setCJKmainfont[BoldFont=simhei.ttf,ItalicFont=simkai.ttf]{simsun.ttc}
+% 数学加粗斜体
+\DeclareMathAlphabet{\mathbfit}{T1}{ptm}{b}{it}
+\renewcommand{\boldsymbol}[1]{\mathbfit{#1}}
 % URL 字体
 \urlstyle{same}
 % 正文行距
@@ -175,7 +179,7 @@
 %%%%%%%% 目录 %%%%%%%%
 
 \renewcommand{\tableofcontents}{
-    % 中文目录标题
+    % 中文目录
     \begin{center}
         \heiti\zihao{-3}目\quad\; 录
     \end{center}
@@ -220,7 +224,6 @@
         \protect\numberline{\thesection}#1
     }
 }
-
 \newcommand{\ensubsection}[1]{
     \addcontentsline{entoc}{subsection}{
         \protect\numberline{\thesubsection}#1
@@ -231,11 +234,9 @@
 \newcommand{\xmuchapter}[2]{
     \chapter{#1}\enchapter{#2}
 }
-
 \newcommand{\xmusection}[2]{
     \section{#1}\ensection{#2}
 }
-
 \newcommand{\xmusubsection}[2]{
     \subsection{#1}\ensubsection{#2}
 }
@@ -250,16 +251,19 @@
 
 %%%%%%%% 章节 %%%%%%%%
 
+% 章节标题字体
 \titleformat{\chapter}{\centering\rm\bf\zihao{-3}}{第\zhnumber{\thechapter} 章}{1em}{}
 \titleformat{\section}{\rm\bf\zihao{4}}{\thesection}{0.5em}{}
 \titleformat{\subsection}{\songti\zihao{-4}}{\thesubsection}{0.5em}{}
 \titleformat{\subsubsection}{\songti\zihao{-4}}{\thesubsubsection}{0.5em}{}
 
+% 章节标题行间距
 \titlespacing{\chapter}{\z@}{\z@}{4ex}
 \titlespacing{\section}{\z@}{1ex plus 1ex minus 0ex}{1.3ex}
 \titlespacing{\subsection}{\z@}{1ex plus 1ex minus 0ex}{1.3ex}
 \titlespacing{\subsubsection}{\z@}{1ex plus 1ex minus 0ex}{1.3ex}
 
+% 章节页眉、页脚
 \renewcommand{\chapter}{
     \clearpage
     \pagestyle{fancy}
@@ -276,22 +280,25 @@
 
 % 图表目录
 \graphicspath{{figures/}}
-
+% 图表编号
 \renewcommand{\thefigure}{\thechapter-\arabic{figure}}
 \renewcommand{\thetable}{\thechapter-\arabic{table}}
 \renewcommand{\theequation}{\thechapter-\arabic{equation}}
-
+% 图表字体
 \DeclareCaptionFont{simsun5bf}{\bf\songti\zihao{5}}
 \captionsetup[figure]{font=simsun5bf}
 \captionsetup[table]{position=top,belowskip=2ex,font=simsun5bf}
 
 %%%%%%%% 脚注 %%%%%%%%
 
-\renewcommand{\footnotesep}{1.2em}
+% 脚注字体
 \renewcommand{\thefootnote}{\textcircled{\rm\zihao{7}\arabic{footnote}}}
 \renewcommand{\thempfootnote}{\textcircled{\rm\zihao{7}\arabic{mpfootnote}}}
 \renewcommand{\footnotesize}{\renewcommand{\baselinestretch}{1}\songti\zihao{-5}}
+% 脚注线
 \renewcommand{\footnoterule}{\vspace{1em}\hrule width 0.4\columnwidth height 0.4pt\vspace{0.3em}}
+% 脚注缩进、行距
+\renewcommand{\footnotesep}{1.2em}
 \deffootnote[1em]{1em}{1em}{\textsuperscript{\zihao{6}\thefootnotemark}\,}
 
 %%%%%%%% 参考文献 %%%%%%%%
@@ -330,6 +337,8 @@
     \renewcommand{\theequation}{A-\arabic{equation}}
     \renewcommand{\thesection}{A.\arabic{section}}
     \renewcommand{\thesubsection}{A.\arabic{section}.\arabic{subsection}}
+    
+    % 更新计数器
     \addtocounter{chapter}{1}
     \setcounter{figure}{0}
     \setcounter{table}{0}
