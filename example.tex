@@ -1,14 +1,21 @@
+%!TEX program = xelatex
 \documentclass{xmu}
 
-%%%%%%%% XMU Undergraduates Dissertation Template %%%%%%%%
+%%%%%%%%    XMU Undergraduates Thesis Template    %%%%%%%%
 %%%%%%%%             Made by: F5Soft              %%%%%%%%
 %%%%%%%%  https://github.com/F5Soft/xmu-template  %%%%%%%%
 
 \begin{document}
 
+% 毕业设计 / 毕业论文 （注释掉下一行即为毕业设计）
+% \design
+
+% 主修 / 辅修 （注释掉下一行即为辅修）
+% \minor
+
 % 标题
 \title{厦门大学本科毕业论文LaTeX模版}
-{An LaTeX Template of Xiamen University Undergraduate Dissertation}
+{An LaTeX Template of Xiamen University Undergraduate Thesis}
 
 % 姓名
 \author{F5Soft.site}
@@ -71,20 +78,20 @@ xmu.cls文件是模版文件，如果您具有排版强迫症，想和我一样�
 \xmuchapter{使用示例}{Examples}
 \xmusection{二级标题}{Section (English Ver.)}
 一级标题（章）总会另起一页。
-\xmusubsection{三级标题}{Subection (English Ver.)}
+\xmusubsection{三级标题}{Subsection (English Ver.)}
 通过xmuchapter、xmusection、xmusubsection指令指定一级（章）、二级（节）、三级（小节）标题。因为英文目录的需要，这三个指令均接收两个参数，第一个参数为中文的标题内容，第二个参数为英文的标题内容。
+\subsubsection{四级标题}
+如果需要四级标题的话，不会出现在目录内。
 \xmusection{图表}{Figures and Tables}
 \xmusubsection{插图}{Figures}
 图片编号均按照章节号-图片号进行编号。可通过caption指令设置图片小标题，可通过label和ref指令引用图片编号。厦门大学校徽如下图 \ref{xmulogo} 所示。
 \begin{figure}[!htb]
     \centering
-    \vspace{1em}
     \includegraphics[width=12em]{xmu-logo-icon.jpg}\\
     \caption{厦门大学校徽}\label{xmulogo}
 \end{figure}
 根据《厦门大学本科毕业论文（设计）规范》\cite{xmuthesis}要求，图片的标题和图号需要在图的下方正中位置。下面再展示一个两图并排的示例：
 \begin{figure}[!htb]
-    \vspace{1em}
     \begin{minipage}{0.5\linewidth}
         \centering
         \includegraphics[height=5em]{xmu-logo-icon.jpg}
@@ -96,21 +103,19 @@ xmu.cls文件是模版文件，如果您具有排版强迫症，想和我一样�
         \caption{厦门大学文字}\label{xmu2}
     \end{minipage}
 \end{figure}
-
 \xmusubsection{表格}{Tables}
 对于表格，编号也按照章节号-表格号进行编号。同样可通过caption指令设置表格小标题，可通过label和ref指令引用表格编号。下表 \ref{database} 中展示了一个数据库的表设计作为示例。
 \begin{table}[!htb]
     \centering
     \caption{基本资料表}
     \label{database}
-    \songti\zihao{5}
     \begin{tabular}{|l|l|l|l|l|}
         \hline
-        \textbf{字段名称} & \textbf{字段类型} & \textbf{长度} & \textbf{字段描述} & \textbf{备注} \\ \hline
-        账户号           & Number        & 30          &               & 主键          \\ \hline
-        密码            & Number        & 30          & 加密            &             \\ \hline
-        姓名            & Varchar       & 50          &               &             \\ \hline
-        电子邮箱          & Varchar       & 50          & VIP客户必填       &             \\ \hline
+        \bf\songti 字段名称 & \bf\songti 字段类型 & \bf\songti 长度 & \bf\songti 字段描述 & \bf\songti 备注 \\ \hline
+        账户号             & Number          & 30            &                 & 主键            \\ \hline
+        密码              & Number          & 30            & 加密              &               \\ \hline
+        姓名              & Varchar         & 50            &                 &               \\ \hline
+        电子邮箱            & Varchar         & 50            & VIP客户必填         &               \\ \hline
     \end{tabular}
 \end{table}
 根据《厦门大学本科毕业论文（设计）规范》\cite{xmuthesis}要求，表格的标题和图号需要在表的上方正中位置。表格内容的字体为5号宋体，表头的字体为5号宋体加粗。
@@ -128,11 +133,11 @@ $$
 \end{equation}
 公式 \ref{eq2} 提供了一个矩阵示例：
 \begin{equation}\label{eq2}
-    \bm{Ax} = \bm{b},\quad\bm{A} = \left(\begin{array}{ccc}
+    \boldsymbol{Ax} = \boldsymbol{b},\quad\boldsymbol{A} = \left(\begin{array}{ccc}
             a_{11} & a_{12} & a_{13} \\
             a_{21} & a_{22} & a_{23} \\
             a_{31} & a_{32} & a_{33} \\
-        \end{array}\right),\quad \bm{b}=\left(\begin{array}{c}
+        \end{array}\right),\quad \boldsymbol{b}=\left(\begin{array}{c}
             b_1 \\ b_2 \\ b_3\end{array}\right)
 \end{equation}
 公式 \ref{eq3} 提供了一个行列式示例：
@@ -151,8 +156,7 @@ $$
     \end{cases} \Rightarrow s,v_1,F_f
 \end{equation}
 \xmusection{算法}{Algorithms}
-如果只是展示代码，可考虑使用verbatim环境
-\footnote{更高级的代码展示可以考虑使用listings宏包中的lstlisting环境，支持代码高亮、换行、标注行号、自定义颜色、自定义字体等功能。}。
+如果只是展示代码，可考虑使用verbatim环境\footnote{更高级的代码展示可以考虑使用listings宏包中的lstlisting环境，支持代码高亮、换行、标注行号、自定义颜色、自定义字体等功能。}。
 这里插入了一个脚注。可以通过footnote指令插入脚注\footnote{脚注示例。}。
 \begin{verbatim}
 #include <unistd.h>
@@ -162,7 +166,7 @@ int main()
     return 0;
 }
 \end{verbatim}
-如果只是展示算法，而不展示具体代码，可以使用算法环境实现：
+如果只是展示算法，而不展示具体代码，可以使用算法环境实现，例如算法 \ref{alg1}：
 \begin{algorithm}[!htb]
     \KwData{sum, $i$: integer}
     \Begin{
@@ -174,6 +178,7 @@ int main()
         }
         \bf print \rm$i$\;
     }
+    \caption{循环求和算法}\label{alg1}
 \end{algorithm}
 
 % 参考文献
@@ -197,8 +202,6 @@ int main()
         \centering
         \caption{附表示例}
         \label{atable}
-        \songti\zihao{5}
-        \renewcommand\arraystretch{1}
         \begin{tabular}{llr}
             \hline
             \multicolumn{2}{c}{Item} &                          \\ \cline{1-2}
@@ -215,6 +218,10 @@ int main()
         \sin \left(2x+\frac\pi2\right)=\frac 12
     \end{equation}
     \xmusection{厦门大学本科毕业论文（设计）规范摘要}{Abstract of Xiamen University Undergraduate Dissertation (Design) Specification}
+    主修专业毕业论文（设计）封面使用 160g 白色双胶纸，辅修封面为 160g 浅黄色皮纹纸。内页均为 A4 规格 80g 双胶纸。\par
+    章的标题占2行，标题以外的文字为1.5倍行距。\par
+    上边距和左边距应留 25mm 以上间隙，下边距和右边距应分别留 20mm 以上间隙。\par
+    每页须加“页眉”和“页码”。奇数页页眉内容为当前章名，如“第一章 绪论”。偶数页页眉内容为论文题目。学位论文的页码，正文、参考文献、附录部分用阿拉伯数字连续编码并居中，前置部分用罗马数字单独连续编码居中（封面除外）。\par
     封面中文标题：二号黑体\par
     封面英文标题：三号 Times New Roman 加粗\par
     中文摘要标题：小三号黑体\par
@@ -247,6 +254,11 @@ int main()
     附录标题：小三号黑体\par
     致谢标题：小三号黑体\par
     致谢内容：小四号宋体\par
+    对于中英文混杂的内容，{\bf\songti 中文的字体若是用宋体，英文的字体则采用Times New Roman}；{\sf 中文的字体若是黑体，英文的字体则采用Arial}。\footnote{
+        因此，本模版提供了如下的几种字体设置。rm：罗马字族，中文宋体，英文Times。sf：等线字族，中文黑体，英文Arial。bf：粗体序列，中文黑体，英文Times加粗。it：斜体序列，中文楷体，英文Times斜体。如果需要使用难看的宋体加粗，则需要通过 \textbackslash bf\textbackslash songti实现。当然，也可以使用 songti、heiti、kaishu 手动指定中文字体，此时英文字体均默认为Times。
+    }
+    \xmusubsection{附录三级标题}{Subsection in Appendix}
+    \subsubsection{附录四级标题}
 \end{appendix}
 
 % 致谢
