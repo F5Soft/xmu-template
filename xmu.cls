@@ -56,12 +56,10 @@
 \setCJKfamilyfont{simsun}{simsun.ttc}
 \setCJKfamilyfont{simhei}{simhei.ttf}
 \setCJKfamilyfont{simkai}{simkai.ttf}
-\setCJKfamilyfont{simfang}{simfang.ttf}
 
 \renewcommand{\songti}{\CJKfamily{simsun}}    % 宋体
 \renewcommand{\heiti}{\CJKfamily{simhei}}     % 黑体
 \renewcommand{\kaishu}{\CJKfamily{simkai}}    % 楷体
-\renewcommand{\fangsong}{\CJKfamily{simfang}} % 仿宋
 
 % 英文默认字体
 \setmainfont{Times New Roman}
