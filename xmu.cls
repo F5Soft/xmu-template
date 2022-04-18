@@ -357,8 +357,6 @@
 
 \newenvironment{reference}{
 }{
-    \par
-    \clearpage
     \pagestyle{fancy}
     \fancyhf{}
     \renewcommand{\headrulewidth}{0.4pt}
@@ -367,6 +365,7 @@
     \fancyfoot[C]{\rm\zihao{-5}\thepage}
     \addcontentsline{toc}{chapter}{参考文献}
     \addcontentsline{entoc}{chapter}{References}
+    \clearpage
 }
 
 \renewcommand{\bibfont}{\rm\zihao{5}} % 参考文献字体
