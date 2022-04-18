@@ -1,16 +1,18 @@
 %!TEX program = xelatex
 \documentclass{xmu}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%    XMU Undergraduates Thesis Template    %%%%%%%%
 %%%%%%%%             Made by: F5Soft              %%%%%%%%
 %%%%%%%%  https://github.com/F5Soft/xmu-template  %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-% 毕业设计 / 毕业论文 （注释掉下一行即为毕业设计）
+% 毕业设计 / 毕业论文（取消注释下一行即为毕业设计）
 % \design
 
-% 主修 / 辅修 （注释掉下一行即为辅修）
+% 主修 / 辅修（取消注释下一行即为辅修）
 % \minor
 
 % 标题
@@ -35,7 +37,7 @@
 % 校内指导教师
 \teacher{F5Soft\; 副教授}
 
-% 校外指导教师（可注释掉该指令）
+% 校外指导教师（注释则不显示）
 \otherteacher{F5Soft\; 教授}
 
 % 完成时间
@@ -47,6 +49,8 @@
 
 % 生成封面、承诺书
 \maketitle
+
+%%%%%%%% 摘要 %%%%%%%%
 
 % 中文摘要
 \begin{abstract}
@@ -61,7 +65,8 @@
 % 生成中英文目录
 \tableofcontents
 
-% 正文
+%%%%%%%% 正文 %%%%%%%%
+
 \xmuchapter{使用说明}{Introduction}
 \xmusection{环境配置}{Environment Setup}
 首先，需要配置好LaTeX环境。这里推荐TeX Live + VSCode。其中TeX Live可访问{https://www.tug.org/texlive/}下载；VSCode安装完成后需要再搜索安装LaTeX Workshop插件。
@@ -181,7 +186,7 @@ int main()
     \caption{循环求和算法}\label{alg1}
 \end{algorithm}
 
-% 参考文献
+%%%%%%%% 参考文献 %%%%%%%%
 
 \begin{reference}
     \begin{thebibliography}{5}
@@ -193,7 +198,7 @@ int main()
     \end{thebibliography}
 \end{reference}
 
-% 附录
+%%%%%%%% 附录 %%%%%%%%
 
 \begin{appendix}
     \xmusection{附表}{Tables}
@@ -261,7 +266,7 @@ int main()
     \subsubsection{附录四级标题}
 \end{appendix}
 
-% 致谢
+%%%%%%%% 致谢 %%%%%%%%
 
 \begin{acknowledgement}
     虽然在《厦门大学本科毕业论文（设计）规范》中，致谢应放在前置部分，但是正常情况下致谢应该几乎都是放在最后的。

@@ -1,8 +1,10 @@
 \ProvidesClass{xmu}[XMU Undergraduates Thesis Template]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%    XMU Undergraduates Thesis Template    %%%%%%%%
 %%%%%%%%             Made by: F5Soft              %%%%%%%%
 %%%%%%%%  https://github.com/F5Soft/xmu-template  %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \PassOptionsToPackage{AutoFakeBold}{xeCJK}
 \LoadClass{ctexbook}
@@ -354,6 +356,7 @@
 \newenvironment{reference}{
     \pagestyle{fancy}
     \fancyhf{}
+    \renewcommand{\headrulewidth}{0.4pt}
     \fancyhead[OC]{\rm\zihao{-5}参考文献}
     \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
     \fancyfoot[C]{\rm\zihao{-5}\thepage}
@@ -365,7 +368,7 @@
 }
 
 \renewcommand{\bibfont}{\rm\zihao{5}} % 参考文献字体
-\renewcommand{\bibsep}{0.5ex}             % 参考文献之间的间距
+\renewcommand{\bibsep}{0.5ex}         % 参考文献之间的间距
 
 %%%%%%%% 附录 %%%%%%%%
 

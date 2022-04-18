@@ -1,0 +1,13 @@
+*
+!.gitignore
+!figures/xmu-logo-icon.jpg
+!figures/xmu-logo-text.jpg
+!example-minimal.tex
+!example.pdf
+!example.tex
+!LICENCE
+!README.md
+!simhei.ttf
+!simkai.ttf
+!simsun.ttc
+!xmu.cls

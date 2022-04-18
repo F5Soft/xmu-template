@@ -12,21 +12,93 @@
 
 ## Features
 
-- 自动生成封面、诚信承诺书
+- 自动生成封面、诚信承诺书、中英目录
 - 支持将封面改为“本科毕业设计”
 - 支持在封面中添加“（辅修）”
-- 自动生成中英目录
 - 中英文摘要、中英文目录支持
 - 章节自动编号
-- 自动设置奇数、偶数页眉和页脚
 - 根据章节自动进行插图、表格、公式、算法编号
+- 自动设置奇数、偶数页眉和页脚
 - 支持附录、附表，以及在附录中添加附录章节
 - 自带字体文件，兼容缺少 Windows 版宋体和黑体字体的 Linux 和 macOS 系统
 - 严格按照《厦门大学本科毕业论文（设计）规范》设置字体、行距等
 
 ## 示例
 
-example.tex 文件内有详细的注释和使用示例，最终编译效果在 [example.pdf](https://github.com/F5Soft/xmu-template/blob/main/example.pdf) 中。可以直接在该示例基础上修改。
+最简单的示例 example-minimal.tex，编译时需要确保和 xmu.cls 文件在同一目录内：
+
+```tex
+%!TEX program = xelatex
+\documentclass{xmu}
+\begin{document}
+
+% 基础信息
+
+% \design % 毕业设计 / 毕业论文（取消注释即为毕业设计）
+% \minor % 主修 / 辅修（取消注释即为辅修）
+\title{中文标题}{English Title}
+\author{你的姓名}
+\idn{你的学号}
+\college{你的学院}
+\subject{你的专业}
+\grade{你的年级}
+\teacher{校内指导教师\; 职称}
+\otherteacher{校外指导教师\; 职称} % 注释则不显示校外指导教师
+\pubdate{完成时间}
+\keywords{中文关键词}{English keywords}
+
+% 封面、承诺书
+
+\maketitle
+
+% 中文摘要
+
+\begin{abstract}
+    摘要内容。
+\end{abstract}
+
+% 英文摘要
+
+\begin{enabstract}
+    Abstract Contents.
+\end{enabstract}
+
+% 目录
+
+\tableofcontents
+
+% 正文
+
+\xmuchapter{一级标题（章）}{Chapter}
+\xmusection{二级标题（节）}{Section}
+\xmusubsection{三级标题（小节）}{Subsection}
+\subsubsection{四级标题} % 四级标题不显示在目录中，无需英文
+正文内容，脚注\footnote{脚注内容}，引用参考文献\cite{cite1}。
+
+% 参考文献
+
+\begin{reference}
+    \begin{thebibliography}{1} % 括号内数字为参考文献条数
+         \bibitem[1]{cite1} 参考文献1
+    \end{thebibliography}
+\end{reference}
+
+% 附录
+
+\begin{appendix}
+    附录内容。
+\end{appendix}
+
+% 致谢
+
+\begin{acknowledgement}
+    致谢内容。
+\end{acknowledgement}
+
+\end{document}
+```
+
+详细示例见 example.tex 文件，最终编译效果在 [example.pdf](https://github.com/F5Soft/xmu-template/blob/main/example.pdf) 中。可以直接在该示例基础上修改。
 
 编译时，需要确保 example.tex 文件和 xmu.cls 文件在同一目录内，并使用 xelatex 进行编译。如果使用 pdflatex 编译则可能编译失败。
 
