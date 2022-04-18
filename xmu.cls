@@ -195,6 +195,7 @@
     \noindent
     {\bf\zihao{-4}Key Words: }\xmu@enkeywords
     \clearpage
+    \cleardoublepage
 }
 
 %%%%%%%% 目录 %%%%%%%%
@@ -233,6 +234,7 @@
     \vspace{1em}
     \@starttoc{entoc}
     \clearpage
+    \cleardoublepage
 
     % 定义目录后的页码格式为阿拉伯数字
     \pagenumbering{arabic}
@@ -354,6 +356,9 @@
 %%%%%%%% 参考文献 %%%%%%%%
 
 \newenvironment{reference}{
+}{
+    \par
+    \clearpage
     \pagestyle{fancy}
     \fancyhf{}
     \renewcommand{\headrulewidth}{0.4pt}
@@ -362,9 +367,6 @@
     \fancyfoot[C]{\rm\zihao{-5}\thepage}
     \addcontentsline{toc}{chapter}{参考文献}
     \addcontentsline{entoc}{chapter}{References}
-}{
-    \par
-    \clearpage
 }
 
 \renewcommand{\bibfont}{\rm\zihao{5}} % 参考文献字体
@@ -376,7 +378,7 @@
     \chapter*{附\quad\; 录}
     \pagestyle{fancy}
     \fancyhf{}
-    \fancyhead[OC]{\rm\zihao{-5}附录}
+    \fancyhead[OC]{\rm\zihao{-5}附\quad\; 录}
     \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
     \fancyfoot[C]{\rm\zihao{-5}\thepage}
     \addcontentsline{toc}{chapter}{附录}
@@ -409,7 +411,7 @@
     \chapter*{致\quad\; 谢}
     \pagestyle{fancy}
     \fancyhf{}
-    \fancyhead[OC]{\rm\zihao{-5}致谢}
+    \fancyhead[OC]{\rm\zihao{-5}致\quad\; 谢}
     \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
     \fancyfoot[C]{\rm\zihao{-5}\thepage}
     \addcontentsline{toc}{chapter}{致谢}
