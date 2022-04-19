@@ -42,6 +42,7 @@
 
 %%%%%%%% 用户自定义变量 %%%%%%%%
 
+\newcommand{\print}{\def\xmu@print{true}}
 \newcommand{\design}{\def\xmu@design{true}}                             % 毕业设计 / 毕业论文
 \newcommand{\minor}{\def\xmu@minor{true}}                               % 主修 / 辅修
 \renewcommand{\title}[2]{\def\xmu@title{#1}\def\xmu@entitle{#2}}        % 标题
@@ -129,6 +130,7 @@
         \xmu@pubdate
     \end{center}
     \clearpage
+    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 
     % 诚信承诺书
     \pagestyle{empty}
@@ -154,6 +156,7 @@
         \par
     }
     \clearpage
+    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 
     % 定义目录前的页码格式为罗马字母
     \pagenumbering{Roman}
@@ -195,7 +198,7 @@
     \noindent
     {\bf\zihao{-4}Key Words: }\xmu@enkeywords
     \clearpage
-    \cleardoublepage
+    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 }
 
 %%%%%%%% 目录 %%%%%%%%
@@ -234,7 +237,7 @@
     \vspace{1em}
     \@starttoc{entoc}
     \clearpage
-    \cleardoublepage
+    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 
     % 定义目录后的页码格式为阿拉伯数字
     \pagenumbering{arabic}
@@ -356,6 +359,7 @@
 %%%%%%%% 参考文献 %%%%%%%%
 
 \newenvironment{reference}{
+    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 }{
     \pagestyle{fancy}
     \fancyhf{}
@@ -366,6 +370,7 @@
     \addcontentsline{toc}{chapter}{参考文献}
     \addcontentsline{entoc}{chapter}{References}
     \clearpage
+    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 }
 
 \renewcommand{\bibfont}{\rm\zihao{5}} % 参考文献字体
@@ -377,6 +382,7 @@
     \chapter*{附\quad\; 录}
     \pagestyle{fancy}
     \fancyhf{}
+    \renewcommand{\headrulewidth}{0.4pt}
     \fancyhead[OC]{\rm\zihao{-5}附\quad\; 录}
     \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
     \fancyfoot[C]{\rm\zihao{-5}\thepage}
@@ -402,6 +408,7 @@
 }{
     \par
     \clearpage
+    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 }
 
 %%%%%%%% 致谢 %%%%%%%%
@@ -410,14 +417,27 @@
     \chapter*{致\quad\; 谢}
     \pagestyle{fancy}
     \fancyhf{}
-    \fancyhead[OC]{\rm\zihao{-5}致\quad\; 谢}
-    \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
-    \fancyfoot[C]{\rm\zihao{-5}\thepage}
-    \addcontentsline{toc}{chapter}{致谢}
-    \addcontentsline{entoc}{chapter}{Acknowledgements}
+    \ifthenelse{\isundefined{\xmu@entoc}}{
+        % 如果致谢在目录前，则只设置页脚
+        \renewcommand{\headrulewidth}{0pt}
+        \fancyfoot[C]{\rm\zihao{-5}\thepage}
+    }{
+        % 如果致谢在目录后，设置页眉、页脚，并添加索引到目录
+        \renewcommand{\headrulewidth}{0.4pt}
+        \fancyhead[OC]{\rm\zihao{-5}致\quad\; 谢}
+        \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
+        \fancyfoot[C]{\rm\zihao{-5}\thepage}
+        \addcontentsline{toc}{chapter}{致谢}
+        \addcontentsline{entoc}{chapter}{Acknowledgements}
+    }
+    \vspace{1em}
 }{
     \par
     \clearpage
+    % 如果致谢在目录前，打印时清除双页
+    \ifthenelse{\isundefined{\xmu@entoc}}{
+        \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
+    }{}
 }
 
 \endinput
