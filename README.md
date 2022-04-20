@@ -19,7 +19,7 @@
 - 章节自动编号
 - 根据章节自动进行插图、表格、公式、算法编号
 - 自动设置奇数、偶数页眉和页脚
-- 支持从 bib 文件导入参考文献，将自动按照 GB/T-7714 设置参考文献的引用格式
+- 支持从 bib 文件导入参考文献，将自动按照 GB/T 7714-2005 设置参考文献的引用格式
 - 支持附录、附表，以及在附录中添加附录章节
 - 同时支持电子版和打印版，如果设成打印版，将会在某些偶数页产生空白，使得下一部分的内容从奇数页开始
 - 致谢环境可以自定义放在摘要前或论文最后
@@ -29,6 +29,8 @@
 ## 示例
 
 最简单的示例 example-minimal.tex，编译时需要确保和 xmu.cls 文件在同一目录内：
+
+> 如果编译失败（尤其是 macOS系统），请**使用 xelatex 进行编译**。如果使用的是 VSCode 的 Latex Workshop 插件，需要选择 Recipe: latexmk (xelatex) 这一项。
 
 ```tex
 %!TEX program = xelatex
@@ -86,8 +88,9 @@
 \begin{reference}
     % 如果需要使用 bib 文件导入参考文献，则取消注释下一行
     % \bibliography{references.bib}
-    % 已自动按照 GB/T-7714 设置参考文献的引用格式
+    % 已自动按照 GB/T 7714-2005 设置参考文献的引用格式
 
+    % 手动添加参考文献
     \begin{thebibliography}{1} % 括号内数字为参考文献条数
          \bibitem[1]{cite1} 参考文献1
     \end{thebibliography}
@@ -111,6 +114,8 @@
 详细示例见 example.tex 文件，最终编译效果在 [example.pdf](https://github.com/F5Soft/xmu-template/blob/main/example.pdf) 中。可以直接在该示例基础上修改。
 
 编译时，需要确保 example.tex 文件和 xmu.cls 文件在同一目录内，并使用 xelatex 进行编译。如果使用 pdflatex 编译则可能编译失败。
+
+> 如果编译失败（尤其是 macOS系统），请**使用 xelatex 进行编译**。如果使用的是 VSCode 的 Latex Workshop 插件，需要选择 Recipe: latexmk (xelatex) 这一项。
 
 论文中的所有插图需统一放在 figures 文件夹内，并根据文件名来包含。
 

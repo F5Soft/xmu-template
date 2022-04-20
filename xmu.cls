@@ -35,7 +35,6 @@
 \RequirePackage{scrextend}
 % 自定义参考文献
 \RequirePackage[square,super,comma,sort,compress]{natbib}
-\RequirePackage{gbt7714}
 % 引用、超链接
 \RequirePackage[colorlinks,citecolor=black,linkcolor=black,urlcolor=black,bookmarksnumbered=true,bookmarksopen=true]{hyperref}
 % 条件编译
@@ -374,7 +373,7 @@
     \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 }
 
-\bibliographystyle{gbt7714-numerical} % 参考文献格式 GB/T-7714
+\bibliographystyle{gbt7714-2005.bst}  % 参考文献格式 GB/T 7714-2005
 \renewcommand{\bibfont}{\rm\zihao{5}} % 参考文献字体
 \renewcommand{\bibsep}{0.5ex}         % 参考文献之间的间距
 
