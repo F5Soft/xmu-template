@@ -311,6 +311,7 @@
 % 章节页眉、页脚
 \renewcommand{\chapter}{
     \clearpage
+    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
     \pagestyle{fancy}
     \fancyhf{}
     \renewcommand{\headrulewidth}{0.4pt}
