@@ -347,14 +347,14 @@
 %%%%%%%% 脚注 %%%%%%%%
 
 % 脚注字体
-\renewcommand{\thefootnote}{\textcircled{\rm\zihao{7}\arabic{footnote}}}
-\renewcommand{\thempfootnote}{\textcircled{\rm\zihao{7}\arabic{mpfootnote}}}
-\renewcommand{\footnotesize}{\renewcommand{\baselinestretch}{1}\rm\zihao{-5}}
+\renewcommand{\thefootnote}{\textcircled{\rm\zihao{7}\arabic{footnote}}\;}
+\renewcommand{\thempfootnote}{\textcircled{\rm\zihao{7}\arabic{mpfootnote}}\;}
+\renewcommand{\footnotesize}{\renewcommand{\baselinestretch}{1.15}\rm\zihao{-5}}
 % 脚注线
 \renewcommand{\footnoterule}{\vspace{1em}\hrule width 0.4\columnwidth height 0.4pt\vspace{0.3em}}
 % 脚注缩进、行距
 \renewcommand{\footnotesep}{1.2em}
-\deffootnote[1em]{1em}{1em}{\textsuperscript{\rm\zihao{6}\thefootnotemark}\,}
+\deffootnote[3ex]{3ex}{1em}{\zihao{7}\raisebox{0.4ex}{\rm\zihao{-5}\thefootnotemark}}
 
 %%%%%%%% 参考文献 %%%%%%%%
 
