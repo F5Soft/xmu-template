@@ -29,6 +29,8 @@
 \RequirePackage{amssymb}
 \RequirePackage{mathptmx}
 \RequirePackage{bm}
+% 绘图
+\RequirePackage{pgfplots}
 % 算法
 \RequirePackage[ruled]{algorithm2e}
 % 自定义脚注
@@ -334,14 +336,14 @@
 \DeclareCaptionFont{simsun5bf}{\bf\songti\zihao{5}}
 \captionsetup[figure]{font=simsun5bf}
 \captionsetup[table]{position=top,belowskip=2ex,font=simsun5bf}
-\AtBeginEnvironment{figure}{\vspace{1em}}
-\AtBeginEnvironment{table}{\vspace{-1ex}\zihao{5}}
+\AtBeginEnvironment{figure}{\zihao{5}}
+\AtBeginEnvironment{table}{\zihao{5}}
 % 代码、算法字体
 \AtBeginEnvironment{verbatim}{\par\renewcommand{\baselinestretch}{1.2}\zihao{5}}
 \AtBeginEnvironment{algorithm}{\par\renewcommand{\baselinestretch}{1.2}\zihao{5}}
 % 算法行距
-\renewcommand{\interspacetitleruled}{0.8ex}
-\renewcommand{\interspacetitleboxruled}{6ex}
+\AtEndEnvironment{algorithm}{\vspace*{-0.5ex}}
+\renewcommand{\interspacetitleruled}{1ex}
 \SetAlgoInsideSkip{smallskip}
 \renewcommand{\algorithmcfname}{\bf\songti 算法}
 

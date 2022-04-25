@@ -130,6 +130,36 @@ xmu.cls文件是模版文件，如果您具有排版强迫症，想和我一样�
     \end{tabular}
 \end{table}
 根据《厦门大学本科毕业论文（设计）规范》\cite{xmuthesis}要求，表格的标题和图号需要在表的上方正中位置。表格内容的字体为5号宋体，表头的字体为5号宋体加粗。
+\xmusection{画图}{Plotting}
+可以使用tikzpicture环境绘制函数、折线图、散点图等，例如图 \ref{plot} 所示：
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                xlabel={Temperature [Celsius Degree]},
+                ylabel={Solubility [g per 100 g water]},
+                xmin=0, xmax=100,
+                ymin=0, ymax=120,
+                xtick={0,20,40,60,80,100},
+                ytick={0,20,40,60,80,100,120},
+                legend pos=north west,
+                ymajorgrids=true,
+                grid style=dashed,
+            ]
+
+            \addplot[
+                color=blue,
+                mark=square,
+            ]
+            coordinates {
+                    (0,23.1)(10,27.5)(20,32)(30,37.8)(40,44.6)(60,61.8)(80,83.8)(100,114)
+                };
+            \legend{CuSO\(_4\cdot\)5H\(_2\)O}
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Temperature dependence of CuSO\(_4\cdot\)5H\(_2\)O solubility}\label{plot}
+\end{figure}
 \xmusection{公式}{Formulas}
 公式可以分为行内公式 $a^2+b^2=c^2$ 和行间公式：
 $$
@@ -142,7 +172,7 @@ $$
 \begin{equation}\label{eq1}
     \lim_{x\to0}\frac{\displaystyle{\int_{\sin x}^x\sqrt{3+t^2}\,\mathrm{d}t}}{x(e^{x^2}-1)}
 \end{equation}
-公式 \ref{eq2} 提供了一个矩阵示例：
+公式 \ref{eq2} 提供了一个矩阵示例，注意加粗字母最好是使用boldsymbol而非bm：
 \begin{equation}\label{eq2}
     \boldsymbol{Ax} = \boldsymbol{b},\quad\boldsymbol{A} = \left(\begin{array}{ccc}
             a_{11} & a_{12} & a_{13} \\
@@ -166,6 +196,7 @@ $$
         F_f=\mu mg                         \\
     \end{cases} \Rightarrow s,v_1,F_f
 \end{equation}
+公式字体采用的是mathptmx。
 \xmusection{算法}{Algorithms}
 如果只是展示代码，可考虑使用verbatim环境\footnote{更高级的代码展示可以考虑使用listings宏包中的lstlisting环境，支持代码高亮、换行、标注行号、自定义颜色、自定义字体等功能。}。
 这里插入了一个脚注。可以通过footnote指令插入脚注\footnote{脚注示例。}。
