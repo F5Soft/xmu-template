@@ -23,6 +23,8 @@
 % 插图
 \RequirePackage{graphicx}
 \RequirePackage{caption}
+% 表格线
+\RequirePackage{booktabs}
 % 数学公式
 \RequirePackage{array}
 \RequirePackage{amsmath}
@@ -306,9 +308,9 @@
 
 % 章节标题行间距
 \titlespacing{\chapter}{\z@}{\z@}{4ex}
-\titlespacing{\section}{\z@}{2.6ex plus 2ex minus 0ex}{2ex}
-\titlespacing{\subsection}{\z@}{1.3ex plus 1ex minus 0ex}{1ex}
-\titlespacing{\subsubsection}{\z@}{1ex plus 0.6ex minus 0ex}{0.6ex}
+\titlespacing{\section}{\z@}{1.6ex \@plus 1.3ex \@minus 0ex}{1.3ex}
+\titlespacing{\subsection}{\z@}{1.3ex \@plus 1ex \@minus 0ex}{1ex}
+\titlespacing{\subsubsection}{\z@}{1ex \@plus 0.7ex \@minus 0ex}{0.7ex}
 
 % 章节页眉、页脚
 \renewcommand{\chapter}{
@@ -345,7 +347,8 @@
 \AtEndEnvironment{algorithm}{\vspace*{-0.5ex}}
 \renewcommand{\interspacetitleruled}{1ex}
 \SetAlgoInsideSkip{smallskip}
-\renewcommand{\algorithmcfname}{\bf\songti 算法}
+\renewcommand{\algorithmcfname}{\quad\bf\songti 算法}
+\renewcommand{\algomargin}{2em}
 
 %%%%%%%% 脚注 %%%%%%%%
 
