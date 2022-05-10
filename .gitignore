@@ -3,6 +3,8 @@
 !figures/xmu-logo-icon.jpg
 !figures/xmu-logo-text.jpg
 !example-minimal.tex
+!example-slide.pdf
+!example-slide.tex
 !example.pdf
 !example.tex
 !gbt7714-2005.bst
@@ -11,4 +13,5 @@
 !simhei.ttf
 !simkai.ttf
 !simsun.ttc
+!xmu-slide.cls
 !xmu.cls
