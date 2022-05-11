@@ -57,10 +57,8 @@
 %%%%%%%% 字体定义 %%%%%%%%
 
 % 英文默认字体
-\setmainfont{Times New Roman}
 \setsansfont{Arial}
 % 中文默认字体
-\setCJKmainfont[BoldFont=simhei.ttf,ItalicFont=simkai.ttf]{simsun.ttc}
 \setCJKsansfont{simhei.ttf}
 
 %%%%%%%% 幻灯片样式 %%%%%%%%
@@ -85,22 +83,22 @@
         % 浅色主题封面
         \begin{frame}[plain]
             \begin{center}
-                \vskip 2ex
-                \includegraphics[height=5ex]{xmu-logo-text.jpg}
-                \vskip -2ex
-                    {\zihao{6}\bf\songti 本\, 科\, 毕\, 业\, 论\, 文\, 答\, 辩}
-                \vskip 2em
+                \vskip 12pt
+                \includegraphics[height=25pt]{xmu-logo-text.jpg}
+                \vskip -8pt
+                    {\zihao{-5}\bf\songti 本\, 科\, 毕\, 业\, 答\, 辩}
+                \vskip 24pt
                 \begin{beamercolorbox}[wd=\paperwidth,center]{palette secondary}
-                    \vskip 1ex
-                    \zihao{-2}\xmu@title
-                    \vskip 1.8ex
+                    \vskip 0pt
+                    \zihao{2}\xmu@title
+                    \vskip 16pt
                 \end{beamercolorbox}
-                \vskip 3ex
+                \vskip 12pt
                 \begin{tabular}{r@{\hskip 1.5ex}l}
                     答辩人：  & \xmu@author  \\
                     指导教师： & \xmu@teacher \\
                 \end{tabular}
-                \vskip 3ex
+                \vskip 12pt
                 \color{gray}\zihao{-5}\xmu@pubdate
             \end{center}
         \end{frame}
@@ -109,23 +107,23 @@
         \setbeamercolor{background canvas}{bg=xmublue}
         \begin{frame}[plain]
             \begin{center}
-                \vskip 2ex
-                \includegraphics[height=4.5ex]{xmu-logo-white.png}
-                \vskip -1ex
-                    {\color{white}\zihao{6}\bf\songti 本\, 科\, 毕\, 业\, 论\, 文\, 答\, 辩}
-                \vskip 2em
+                \vskip 12pt
+                \includegraphics[height=25pt]{xmu-logo-white.png}
+                \vskip -8pt
+                    {\color{white}\zihao{-5}\bf\songti 本\, 科\, 毕\, 业\, 答\, 辩}
+                \vskip 24pt
                 \begin{beamercolorbox}[wd=\paperwidth,center]{palette secondary}
-                    \vskip 1ex
-                    \zihao{-2}\xmu@title
-                    \vskip 1.8ex
+                    \vskip 0pt
+                    \zihao{2}\xmu@title
+                    \vskip 16pt
                 \end{beamercolorbox}
-                \vskip 3ex
+                \vskip 12pt
                 \color{white}
                 \begin{tabular}{r@{\hskip 1.5ex}l}
                     答辩人：  & \xmu@author  \\
                     指导教师： & \xmu@teacher \\
                 \end{tabular}
-                \vskip 2ex
+                \vskip 12pt
                 \zihao{6}\xmu@pubdate
             \end{center}
         \end{frame}

@@ -1,7 +1,10 @@
 *
 !.gitignore
+!figures
 !figures/xmu-logo-icon.jpg
+!figures/xmu-logo-icon.png
 !figures/xmu-logo-text.jpg
+!figures/xmu-logo-white.png
 !example-minimal.tex
 !example-slide.pdf
 !example-slide.tex
