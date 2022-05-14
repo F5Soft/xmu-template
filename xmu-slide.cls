@@ -43,8 +43,9 @@
 
 %%%%%%%% 颜色定义 %%%%%%%%
 
-\definecolor{xmublue}{RGB}{40,100,190}         % 厦大主题蓝色
-\definecolor{xmulightblue}{RGB}{200,222,255} % 厦大主题浅蓝色
+\definecolor{xmublue}{RGB}{40,100,190}        % 厦大主题蓝色
+\definecolor{xmumiddleblue}{RGB}{115,170,250} % 厦大主题中蓝色
+\definecolor{xmulightblue}{RGB}{200,222,255}  % 厦大主题浅蓝色
 
 \setbeamercolor{palette primary}{bg=xmublue,fg=white}
 \setbeamercolor{palette secondary}{bg=xmulightblue,fg=xmublue}
@@ -57,6 +58,7 @@
 %%%%%%%% 字体定义 %%%%%%%%
 
 % 英文默认字体
+\setmainfont{Times New Roman}
 \setsansfont{Arial}
 % 中文默认字体
 \setCJKsansfont{simhei.ttf}
@@ -217,13 +219,14 @@
 
 % 取消页眉
 \setbeamertemplate{headline}{}
+\setbeamertemplate{frametitle continuation}{}
 
 % 帧标题
 \setbeamertemplate{frametitle}{
     \nointerlineskip
     \begin{beamercolorbox}[sep=0.3cm,ht=5ex,wd=\paperwidth]{palette primary}
         \strut\hspace{2ex}\zihao{3}\insertframetitle\hspace{\fill}\raisebox{-0.25ex}{\includegraphics[height=1em]{xmu-logo-white.png}}\hspace{2ex}\strut
-        \vskip -0.4ex
+        \vskip -0.45ex
     \end{beamercolorbox}
 }
 
