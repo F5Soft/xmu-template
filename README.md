@@ -63,7 +63,8 @@
 
 % 基础信息
 
-% \print % 电子版 / 打印版（打印版将在某些偶数页产生空白页）
+\print % 电子版 / 打印版（打印版将在某些偶数页产生空白页）
+% \arabicchapter % 取消注释后，仅使用数字作为章的编号
 % \design % 毕业设计 / 毕业论文（取消注释即为毕业设计）
 % \minor % 主修 / 辅修（取消注释即为辅修）
 \title{中文标题}{English Title}
@@ -81,7 +82,11 @@
 
 \maketitle
 
-% 如果想要将致谢放在最前，可将最后的致谢移动至此
+% 致谢
+
+\begin{acknowledgement}
+    致谢内容。
+\end{acknowledgement}
 
 % 中文摘要
 
@@ -126,11 +131,7 @@
     附录内容。
 \end{appendix}
 
-% 致谢（默认在最后）
-
-\begin{acknowledgement}
-    致谢内容。
-\end{acknowledgement}
+% 如果想要将致谢放在最后，可将最前的致谢移动至此
 
 \end{document}
 ```
