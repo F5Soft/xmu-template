@@ -46,9 +46,10 @@
 
 %%%%%%%% 用户自定义变量 %%%%%%%%
 
-\newcommand{\print}{\def\xmu@print{true}}
+\newcommand{\print}{\def\xmu@print{true}}                               % 电子版 / 打印版
 \newcommand{\design}{\def\xmu@design{true}}                             % 毕业设计 / 毕业论文
 \newcommand{\minor}{\def\xmu@minor{true}}                               % 主修 / 辅修
+\newcommand{\arabicchapter}{\def\xmu@arabicchapter{true}}               % 章节使用阿拉伯数字编号
 \renewcommand{\title}[2]{\def\xmu@title{#1}\def\xmu@entitle{#2}}        % 标题
 \renewcommand{\author}[1]{\def\xmu@author{#1}}                          % 作者
 \newcommand{\idn}[1]{\def\xmu@idn{#1}}                                  % 学号
@@ -95,6 +96,14 @@
 %%%%%%%% 封面 %%%%%%%%
 
 \renewcommand{\maketitle}{
+
+    % PDF Metadata
+    \hypersetup{
+        pdftitle={\xmu@title},
+        pdfsubject={厦门大学本科毕业论文（设计）},
+        pdfauthor={\xmu@author},
+        pdfkeywords={\xmu@keywords}
+    }
     \clearpage
 
     % 封面
@@ -184,11 +193,13 @@
     \vspace{1em}
     \noindent
     {\sf\zihao{-4}关键词：}\xmu@keywords
+    \def\xmu@inabstract{true}
     \clearpage
 }
 
 % 英文摘要
 \newenvironment{enabstract}{
+    \let\xmu@inabstract\relax
     \chapter*{\bf Abstract}
     \pagestyle{fancy}
     \fancyhf{}
@@ -211,6 +222,21 @@
 \setcounter{tocdepth}{2}
 
 \renewcommand{\tableofcontents}{
+    % 设置目录中的章节编号格式
+    \ifthenelse{\isundefined{\xmu@arabicchapter}}{}{
+        \ctexset{
+            chapter={
+                name={,},
+                number=\arabic{chapter}
+            }
+        }
+        \renewcommand{\enchapter}[1]{
+            \addcontentsline{entoc}{chapter}{
+                \protect\numberline{\thechapter}##1
+            }
+        }
+    }
+
     % 中文目录
     \begin{center}
         \sf\zihao{-3}目\quad\; 录
@@ -301,7 +327,7 @@
 \setcounter{secnumdepth}{3}
 
 % 章节标题字体
-\titleformat{\chapter}{\centering\sf\zihao{-3}}{第\zhnumber{\thechapter} 章}{1em}{}
+\titleformat{\chapter}{\centering\sf\zihao{-3}}{\ifthenelse{\isundefined{\xmu@arabicchapter}}{第\zhnumber{\thechapter} 章}{\thechapter}}{1em}{}
 \titleformat{\section}{\sf\zihao{4}}{\thesection}{0.5em}{}
 \titleformat{\subsection}{\sf\zihao{-4}}{\thesubsection}{0.5em}{}
 \titleformat{\subsubsection}{\rm\zihao{-4}}{\thesubsubsection}{0.5em}{}
@@ -315,7 +341,9 @@
 % 章节页眉、页脚
 \renewcommand{\chapter}{
     \clearpage
-    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
+    \ifthenelse{\isundefined{\xmu@inabstract}}{
+        \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
+    }{}
     \pagestyle{fancy}
     \fancyhf{}
     \renewcommand{\headrulewidth}{0.4pt}
@@ -376,7 +404,6 @@
     \addcontentsline{toc}{chapter}{参考文献}
     \addcontentsline{entoc}{chapter}{References}
     \clearpage
-    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 }
 
 \bibliographystyle{gbt7714-2005.bst}  % 参考文献格式 GB/T 7714-2005
@@ -415,7 +442,6 @@
 }{
     \par
     \clearpage
-    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
 }
 
 %%%%%%%% 致谢 %%%%%%%%
@@ -441,10 +467,6 @@
 }{
     \par
     \clearpage
-    % 如果致谢在目录前，打印时清除双页
-    \ifthenelse{\isundefined{\xmu@entoc}}{
-        \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
-    }{}
 }
 
 \endinput
