@@ -23,6 +23,7 @@
 % 插图
 \RequirePackage{graphicx}
 \RequirePackage{caption}
+\RequirePackage{etoolbox}
 % 表格线
 \RequirePackage{booktabs}
 % 数学公式
