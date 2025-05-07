@@ -395,15 +395,15 @@
 
 \newenvironment{reference}{
     \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
-}{
     \pagestyle{fancy}
     \fancyhf{}
     \renewcommand{\headrulewidth}{0.4pt}
     \fancyhead[OC]{\rm\zihao{-5}参考文献}
     \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
     \fancyfoot[C]{\rm\zihao{-5}\thepage}
-    \addcontentsline{toc}{chapter}{参考文献}
+    \addcontentsline{toc}{chapter}{参考文献}  % 注意：这时候已经插入目录
     \addcontentsline{entoc}{chapter}{References}
+}{
     \clearpage
 }
 
